@@ -1,0 +1,73 @@
+body,.conteiner,.game,.item{
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    display: flex
+}
+
+h2,.reset{
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight:500;
+}
+
+body{
+    min-height: 100vh;
+    background: violet;
+    user-select: none
+}
+
+.conteiner{
+    flex-direction: column;
+    gap: 30px;
+    background: linear-gradient(325deg, black 0%, purple 30%, pink 70%, rgb(245, 227, 230) 100%);
+    padding: 30px 60px
+}
+
+h2{
+    font-size: 3em;
+    color: rgb(163, 49, 163);
+    background-color: white;
+    
+}
+
+.reset{
+    padding: 10px 20px;
+    color: black;
+    background-color:antiquewhite;
+    border: none;
+    font-family: 1.5em;
+    cursor: pointer;
+}.reset:focus{
+    color: rgb(252, 67, 98);
+    background-color: black;
+}
+
+.game{
+    width: 430px;
+    height: 430px;
+    flex-wrap: wrap;
+    gap: 10px;
+    transform-style:preserve-3d;
+    perspective: 500px
+}
+.item{
+   width: 100px;
+   height: 100px;
+   background-color: white;
+   font-size: 3em;
+   transform: rotateY(180deg);
+   transition: 0.25s
+}.item::after{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: silver;
+    transition: 0.25s;
+    transition: rotatey(0deg);
+    backface-visibility: hidden
+}.item.boxOpen{
+    transition: rotatey(0deg);
+}.boxOpen::after,.boxMatch::after{
+    transform: rotateY(180deg);
+}
